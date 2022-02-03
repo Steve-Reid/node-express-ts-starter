@@ -1,9 +1,22 @@
-const addition = (a: number, b: number): number => {
-  return a + b;
-};
+import express, { Application, Request, Response } from 'express';
 
-const number1: number = 5;
-const number2: number = 10;
-const result: number = addition(number1, number2);
+const app: Application = express();
+const port = 3001;
 
-console.log('The result is %d', result);
+// Body parsing Middleware
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.get('/', async (_req: Request, res: Response): Promise<Response> => {
+  return res.status(200).send({
+    message: 'Hello World!',
+  });
+});
+
+try {
+  app.listen(port, (): void => {
+    console.log(`Connected successfully on port ${port}`);
+  });
+} catch (error) {
+  console.error(`Error occured: ${error.message}`);
+}

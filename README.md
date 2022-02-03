@@ -1,2 +1,2 @@
-# node-ts-starter
-A Node.js Typescript starter with Prettier and ESLint
+# node-express-ts-starter
+A Node.js and Express starter with Typescript, Prettier and ESLint
